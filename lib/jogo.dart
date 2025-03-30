@@ -23,6 +23,8 @@ class _JogoState extends State<Jogo> {
   late double tamanhoPapel = 100;
   late double tamanhoTesoura = 100;
   late bool botaoHabilitado = false;
+  late bool zerarPontuacao = false;
+  late String escolha = 'Escolha do Computador:';
 
   void selecionarImagem(String escolha) {
     setState(() {
@@ -50,6 +52,8 @@ class _JogoState extends State<Jogo> {
     setState(() {
       Random random = Random();
       escolhaComputador = random.nextInt(3) + 1;
+      escolha = 'Escolha do Computador:';
+      zerarPontuacao = true;
 
       for (int i = 0; i < 10; i++) {
         Future.delayed(Duration(milliseconds: i * 200), () {
@@ -88,6 +92,7 @@ class _JogoState extends State<Jogo> {
                   tamanhoPapel = 100;
                   tamanhoTesoura = 100;
                   computador = inicial;
+
                 });
               });
             }
@@ -151,7 +156,7 @@ class _JogoState extends State<Jogo> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Escolha do Computador:',
+                  escolha,
                   style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
                 ),
               ],
@@ -166,7 +171,7 @@ class _JogoState extends State<Jogo> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Escolha do Jogador: $escolhaJogador',
+                  'Escolha do Jogador:',
                   style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
                 ),
               ],
@@ -179,6 +184,7 @@ class _JogoState extends State<Jogo> {
                   onTap: () {
                     selecionarImagem('pedra');
                     escolhaJogador = 1;
+                    escolha = 'Escolha potencial do Computador: ';
                   },
                   child: Image.asset(
                     'assets/images/pedra.png',
@@ -190,6 +196,7 @@ class _JogoState extends State<Jogo> {
                   onTap: () {
                     selecionarImagem('papel');
                     escolhaJogador = 2;
+                    escolha = 'Escolha potencial do Computador: ';
                   },
                   child: Image.asset(
                     'assets/images/papel.png',
@@ -201,6 +208,7 @@ class _JogoState extends State<Jogo> {
                   onTap: () {
                     selecionarImagem('tesoura');
                     escolhaJogador = 3;
+                    escolha = 'Escolha potencial do Computador: ';
                   },
                   child: Image.asset(
                     'assets/images/tesoura.png',
@@ -216,9 +224,9 @@ class _JogoState extends State<Jogo> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                     backgroundColor: botaoHabilitado
-                        ? const Color.fromARGB(255, 54, 73, 63)
+                        ?  Color.fromARGB(255, 54, 73, 63)
                         : Colors.grey,
                   ),
                   onPressed: botaoHabilitado
@@ -253,22 +261,28 @@ class _JogoState extends State<Jogo> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-                    backgroundColor: const Color.fromARGB(255, 54, 73, 63),
+                    backgroundColor: zerarPontuacao
+                        ?  Color.fromARGB(255, 54, 73, 63)
+                        : Colors.grey,
                   ),
-                  onPressed: () {
+                  onPressed: zerarPontuacao 
+                  ? () {
                     setState(() {
                       pontuacao = 0;
                       pontuacaoComputador = 0;
                       pontuacaoEmpate = 0;
-                    });
-                  },
+                      zerarPontuacao = false;
+                    }
+                    );
+                  }
+                  :null,
                   child: Text(
                     'Zerar Pontuação',
                     style: TextStyle(fontSize: 15, color: const Color.fromRGBO(192, 207, 197, 1), fontFamily: "BubblegumSans"),
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
