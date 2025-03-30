@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="flutter_ex_pedra_papel_tesoura"
+        android:label="Jogo pedra papel tesoura"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
