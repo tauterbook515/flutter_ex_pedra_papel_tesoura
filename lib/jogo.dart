@@ -22,6 +22,9 @@ class _JogoState extends State<Jogo> {
   late double tamanhoPedra = 100;
   late double tamanhoPapel = 100;
   late double tamanhoTesoura = 100;
+  late double tamanhojogador = 20;
+  late double tamanhocomputador = 20;
+  late double tamanhoempate = 20;
   late bool botaoHabilitado = false;
   late bool zerarPontuacao = false;
   late String escolha = 'Escolha do Computador:';
@@ -78,12 +81,15 @@ class _JogoState extends State<Jogo> {
 
               if (escolhaJogador == escolhaComputador) {
                 pontuacaoEmpate++;
+                tamanhoempate = 25;
               } else if ((escolhaJogador == 1 && escolhaComputador == 3) ||
                   (escolhaJogador == 2 && escolhaComputador == 1) ||
                   (escolhaJogador == 3 && escolhaComputador == 2)) {
                 pontuacao++;
+                tamanhojogador = 25;
               } else {
                 pontuacaoComputador++;
+                tamanhocomputador = 25;
               }
               Future.delayed(Duration(seconds: 2), () {
                 setState(() {
@@ -92,6 +98,9 @@ class _JogoState extends State<Jogo> {
                   tamanhoPapel = 100;
                   tamanhoTesoura = 100;
                   computador = inicial;
+                  tamanhocomputador = 20;
+                  tamanhoempate = 20;
+                  tamanhojogador = 20;
 
                 });
               });
@@ -139,15 +148,15 @@ class _JogoState extends State<Jogo> {
               children: [
                 Text(
                   'Jogador: $pontuacao',
-                  style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
+                  style: TextStyle(fontSize: tamanhojogador, color: Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
                 ),
                 Text(
                   'Empate: $pontuacaoEmpate',
-                  style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
+                  style: TextStyle(fontSize: tamanhoempate, color: Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
                 ),
                 Text(
                   'Computador: $pontuacaoComputador',
-                  style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
+                  style: TextStyle(fontSize: tamanhocomputador, color: Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
                 ),
               ],
             ),
