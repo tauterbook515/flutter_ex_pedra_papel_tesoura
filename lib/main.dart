@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ex_pedra_papel_tesoura/jogo.dart';
+import 'package:flutter_ex_pedra_papel_tesoura/inicial.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Jogo(),
+      home: TelaInicial(),
     );
   }
 }
