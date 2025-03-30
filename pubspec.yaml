@@ -94,10 +94,10 @@ flutter:
 flutter_launcher_icons:
   android: true
   image_path: "assets/images/icone-jogo.png" # Sua imagem (deve ter fundo transparente!)
-  android_adaptive_icon_background: "#FFFFFF" # Cor do fundo (ex: azul)
+  android_adaptive_icon_background: "#1ef766" # Cor do fundo (ex: azul)
   android_adaptive_icon_foreground: "assets/icon/foreground.png" # Parte visível do ícone
 
 flutter_native_splash:
-  color: "#e5ebe7" # Cor do fundo (ex: azul)
-  image: assets/images/icone-jogo.png # Sua imagem (deve ter fundo transparente!)
+  color: "#1ef766" # Cor do fundo (ex: azul)
+  image: assets/images/splash.png # Sua imagem (deve ter fundo transparente!)
   android: true
