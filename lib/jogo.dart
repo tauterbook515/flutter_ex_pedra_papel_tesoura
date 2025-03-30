@@ -148,15 +148,15 @@ class _JogoState extends State<Jogo> {
               children: [
                 Text(
                   'Jogador: $pontuacao',
-                  style: TextStyle(fontSize: tamanhojogador, color: Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
+                  style: TextStyle(fontSize: tamanhojogador, color: tamanhojogador == 25 ? Color.fromARGB(255, 151, 0, 252) : Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"), 
                 ),
                 Text(
                   'Empate: $pontuacaoEmpate',
-                  style: TextStyle(fontSize: tamanhoempate, color: Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
+                  style: TextStyle(fontSize: tamanhoempate, color: tamanhoempate == 25 ?  Color.fromARGB(255, 151, 0, 252) : Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
                 ),
                 Text(
                   'Computador: $pontuacaoComputador',
-                  style: TextStyle(fontSize: tamanhocomputador, color: Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
+                  style: TextStyle(fontSize: tamanhocomputador, color: tamanhocomputador == 25 ?  Color.fromARGB(255, 151, 0, 252) : Color.fromARGB(255, 54, 73, 63), fontFamily: "BubblegumSans"),
                 ),
               ],
             ),
