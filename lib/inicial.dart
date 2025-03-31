@@ -17,7 +17,7 @@ class TelaInicial extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(height: 50),
+            SizedBox(height: 100),
             Image.asset("assets/images/icone-inicial.png", width: 300, height: 300),
             SizedBox(height: 100),
         ElevatedButton(

@@ -193,7 +193,7 @@ class _JogoState extends State<Jogo> {
                   onTap: () {
                     selecionarImagem('pedra');
                     escolhaJogador = 1;
-                    escolha = 'Escolha potencial do Computador: ';
+                    escolha = 'Potencial vitória do Computador: ';
                   },
                   child: Image.asset(
                     'assets/images/pedra.png',
@@ -205,7 +205,7 @@ class _JogoState extends State<Jogo> {
                   onTap: () {
                     selecionarImagem('papel');
                     escolhaJogador = 2;
-                    escolha = 'Escolha potencial do Computador: ';
+                    escolha = 'Potencial vitória do Computador: ';
                   },
                   child: Image.asset(
                     'assets/images/papel.png',
@@ -217,7 +217,7 @@ class _JogoState extends State<Jogo> {
                   onTap: () {
                     selecionarImagem('tesoura');
                     escolhaJogador = 3;
-                    escolha = 'Escolha potencial do Computador: ';
+                    escolha = 'Potencial vitória do Computador: ';
                   },
                   child: Image.asset(
                     'assets/images/tesoura.png',
